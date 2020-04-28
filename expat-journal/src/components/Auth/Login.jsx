@@ -12,7 +12,7 @@ const LoginPage = ({ errors, touched, isSubmitting }) => {
     return (
         <Styles>
             <Form className="login">
-                <h4 className="loginTitle">Log in</h4>
+                <h5 className="loginTitle">Log in</h5>
                 <Field
                     className="input"
                     name="username"
@@ -32,10 +32,10 @@ const LoginPage = ({ errors, touched, isSubmitting }) => {
                 )}
                 <br />
                 <button type="submit" className="loggInButton" disabled={isSubmitting}>
-                    SUBMIT
+                    Submit
       </button>
                 <p className="change">
-                    Need an account? <Link to="/register">Register</Link>
+                    <Link to="/register">Create Account </Link>
                 </p>
             </Form>
         </Styles>

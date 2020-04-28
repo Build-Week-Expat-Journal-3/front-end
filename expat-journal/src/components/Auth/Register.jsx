@@ -10,8 +10,7 @@ const RegisterPage = ({ touched, errors, isSubmitting }) => {
 
         <Styles>
             <Form className="register">
-                <h5>Create Account</h5>
-                <p>Use your username for registration</p>
+                <h5>Sign Up</h5>
 
                 <Field
                     className="input"
@@ -35,7 +34,7 @@ const RegisterPage = ({ touched, errors, isSubmitting }) => {
                     Submit
       </button>
                 <p className="change">
-                    Already registered? <Link to="/">Login</Link>
+                    <Link to="/">Login</Link>
                 </p>
             </Form>
         </Styles>
