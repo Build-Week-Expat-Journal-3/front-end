@@ -4,12 +4,13 @@ import axios from "axios";
 import * as yup from "yup";
 import { Styles } from './Styles';
 import { withFormik, Form, Field } from "formik";
+import { signup } from "../../actions"
 
-const RegisterPage = ({ touched, errors, isSubmitting }) => {
+const RegisterPage = ({ touched, errors, isSubmitting, handleSubmit }) => {
     return (
 
         <Styles>
-            <Form className="register">
+            <Form onSubmit={handleSubmit} className="register">
                 <h5>Sign Up</h5>
 
                 <Field
@@ -62,14 +63,15 @@ const FormikRegisterPage = withFormik({
             username: values.username,
             password: values.password
         }
-        axios.post("https:expat-journal3.herokuapp.com/api/auth/register", newUser)
-            .then(response => {
-                console.log(response);
-                bag.props.pushUser("/");
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        signup(bag.props.dispatch, newUser)
+        // axios.post("https:expat-journal3.herokuapp.com/api/auth/register", newUser)
+        //     .then(response => {
+        //         console.log(response);
+        //         bag.props.pushUser("/");
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
     }
 })(RegisterPage);
 
