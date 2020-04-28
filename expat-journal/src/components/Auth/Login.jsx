@@ -53,7 +53,7 @@ const FormikLoginPage = withFormik({
         username: Yup.string()
             .required("Email is required."),
         password: Yup.string()
-            .min(4)
+            .min(2)
             .required()
     }),
     handleSubmit(values, bag) {

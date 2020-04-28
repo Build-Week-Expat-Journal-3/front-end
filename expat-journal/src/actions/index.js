@@ -20,6 +20,9 @@ export const LOGIN_START = "LOGIN_START"
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS"
 export const SIGNUP_FAIL = "SIGNUP_FAIL"
 export const SIGNUP_START = "SIGNUP_START"
+export const FETCH_CURRENT_POST_START = "FETCH_CURRENT_POST_START"
+export const FETCH_CURRENT_POST_SUCCESS = "FETCH_CURRENT_POST_SUCCESS"
+export const FETCH_CURRENT_POST_FAIL = "FETCH_CURRENT_POST_FAIL"
 
 
 const url = "https://expat-journal3.herokuapp.com/api"
@@ -81,14 +84,32 @@ export const deletePost = (dispatch, postId) => {
     .catch(err => dispatch({ type: DELETE_POST_FAIL, payload: err.response.statusText }));
 }
 
-export const getPost = (dispatch, postId) => {
-    // Jorge?
+export const getSinglePost = (dispatch, postId) => {
+    dispatch({ type: FETCH_CURRENT_POST_START });
+    axios
+    .get(`${url}/posts/${postId}`)
+    .then(res => { 
+      dispatch({ type: FETCH_CURRENT_POST_SUCCESS, payload: res.data[0] })
+    })
+    .catch(err => dispatch({ type: FETCH_CURRENT_POST_FAIL, payload: err.response.statusText }));
 }
 
 export const getAllPosts = (dispatch) => {
-    // Jorge?
+    dispatch({ type: FETCH_POSTS_START });
+    axios
+    .get(`${url}/posts`)
+    .then(res => { 
+      dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data })
+    })
+    .catch(err => dispatch({ type: FETCH_POSTS_FAIL, payload: err.response.statusText }));
 }
 
-export const getUserPosts = (dispatch, userId) => {
-    // Jorge?
+export const getPostsForUser = (dispatch, userId) => {
+    dispatch({ type: FETCH_POSTS_START });
+    axios
+    .get(`${url}/users/${userId}/posts`)
+    .then(res => { 
+      dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data })
+    })
+    .catch(err => dispatch({ type: FETCH_POSTS_FAIL, payload: err.response.statusText }));
 }
