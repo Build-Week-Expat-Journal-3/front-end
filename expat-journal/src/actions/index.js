@@ -79,3 +79,15 @@ export const deletePost = (dispatch, postId) => {
     })
     .catch(err => dispatch({ type: DELETE_POST_FAIL, payload: err.response.statusText }));
 }
+
+export const getPost = (dispatch, postId) => {
+    // Jorge?
+}
+
+export const getAllPosts = (dispatch) => {
+    // Jorge?
+}
+
+export const getUserPosts = (dispatch, userId) => {
+    // Jorge?
+}
