@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { withFormik, Form, Field } from "formik";
 import { Styles } from './Styles'
+import { login } from "../../actions";
+import { DispatchContext } from "../../context";
 
-const LoginPage = ({ errors, touched, isSubmitting }) => {
-
-
-
+const LoginPage = ({ errors, touched, isSubmitting, handleSubmit }) => {
+  
     return (
         <Styles>
-            <Form className="login">
+            <Form onSubmit={handleSubmit} className="login">
                 <h5 className="loginTitle">Log in</h5>
                 <Field
                     className="input"
@@ -31,7 +31,7 @@ const LoginPage = ({ errors, touched, isSubmitting }) => {
                     <span>{" " + errors.password}</span>
                 )}
                 <br />
-                <button type="submit" className="loggInButton" disabled={isSubmitting}>
+                <button onClick={handleSubmit} type="submit" className="loggInButton" disabled={isSubmitting}>
                     Submit
       </button>
                 <p className="change">
@@ -50,8 +50,7 @@ const FormikLoginPage = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        email: Yup.string()
-            .email("Email is not valid.")
+        username: Yup.string()
             .required("Email is required."),
         password: Yup.string()
             .min(4)
@@ -60,16 +59,17 @@ const FormikLoginPage = withFormik({
     handleSubmit(values, bag) {
 
         console.log(values);
-        axios.post("https:expat-journal3.herokuapp.com/api/auth/login", values)
-            .then(response => {
-                console.log(response);
-                localStorage.setItem("token", response.data.token);
-                bag.props.pushUser("/tasks");
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+        login(bag.props.dispatch, values)
+    //     axios.post("https:expat-journal3.herokuapp.com/api/auth/login", values)
+    //         .then(response => {
+    //             console.log(response);
+    //             localStorage.setItem("token", response.data.token);
+    //             bag.props.pushUser("/tasks");
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+     }
 })(LoginPage);
 
 export default FormikLoginPage;

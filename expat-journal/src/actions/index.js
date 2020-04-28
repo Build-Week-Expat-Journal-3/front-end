@@ -30,7 +30,7 @@ export const login = (dispatch, credentials) => {
       .post(`${url}/auth/login`, credentials )
       .then(res => { 
         dispatch({ type: LOGIN_SUCCESS, payload: credentials.username })
-        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("token", res.data.token)
         localStorage.setItem("username", credentials.username)
         history.push("/posts")
       })
@@ -39,6 +39,7 @@ export const login = (dispatch, credentials) => {
 
 export const signup = (dispatch, userDetails) => {
   dispatch({ type: SIGNUP_START });
+  console.log(userDetails)
   axios
   .post(`${url}/auth/register`, userDetails )
   .then(res =>
