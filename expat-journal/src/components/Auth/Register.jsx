@@ -55,15 +55,14 @@ const FormikRegisterPage = withFormik({
         password: yup.string()
             .min(4)
             .required(),
-        fname: yup.string().required("First name is required."),
-        lname: yup.string().required("Last name is required.")
+
     }),
     handleSubmit(values, bag) {
         const newUser = {
             username: values.username,
             password: values.password
         }
-        axios.post("https://quarantine-productivity.herokuapp.com/api/auth/register", newUser)
+        axios.post("https:expat-journal3.herokuapp.com/api/auth/register", newUser)
             .then(response => {
                 console.log(response);
                 bag.props.pushUser("/");

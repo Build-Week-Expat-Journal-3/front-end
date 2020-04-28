@@ -17,8 +17,6 @@ flex-direction: column;
 width: 25%;
 margin: 100px auto;
 
-.loginTitle {
-    justify-items: center
 }
 
 }
