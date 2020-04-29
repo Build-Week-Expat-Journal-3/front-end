@@ -14,7 +14,7 @@ const PostSummary = ({post}) => {
 
         <h2>{post.title}</h2>
 
-        <p>{post["created at"]}</p>
+        <p>{post["created at"].split("T")[0]}</p>
 
         </div>
 

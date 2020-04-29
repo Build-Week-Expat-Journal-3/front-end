@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { withFormik, Form, Field } from "formik";
 import { Styles } from './Styles'
 import { login } from "../../actions";
-import { DispatchContext } from "../../context";
+
 
 const LoginPage = ({ errors, touched, isSubmitting, handleSubmit }) => {
   
@@ -34,8 +33,8 @@ const LoginPage = ({ errors, touched, isSubmitting, handleSubmit }) => {
                 <button onClick={handleSubmit} type="submit" className="loggInButton" disabled={isSubmitting}>
                     Submit
       </button>
-                <p className="change">
-                    <Link to="/register">Create Account </Link>
+                <p>
+                    No Account? No problem!!! <Link to="/register">Create an Account </Link>
                 </p>
             </Form>
         </Styles>
@@ -57,18 +56,8 @@ const FormikLoginPage = withFormik({
             .required()
     }),
     handleSubmit(values, bag) {
-
-        console.log(values);
         login(bag.props.dispatch, values)
-    //     axios.post("https:expat-journal3.herokuapp.com/api/auth/login", values)
-    //         .then(response => {
-    //             console.log(response);
-    //             localStorage.setItem("token", response.data.token);
-    //             bag.props.pushUser("/tasks");
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         })
+
      }
 })(LoginPage);
 

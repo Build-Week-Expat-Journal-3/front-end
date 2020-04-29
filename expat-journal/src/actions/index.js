@@ -23,6 +23,7 @@ export const SIGNUP_START = "SIGNUP_START"
 export const FETCH_CURRENT_POST_START = "FETCH_CURRENT_POST_START"
 export const FETCH_CURRENT_POST_SUCCESS = "FETCH_CURRENT_POST_SUCCESS"
 export const FETCH_CURRENT_POST_FAIL = "FETCH_CURRENT_POST_FAIL"
+export const LOGOUT = "LOGOUT"
 
 
 const url = "https://expat-journal3.herokuapp.com/api"
@@ -32,44 +33,47 @@ export const login = (dispatch, credentials) => {
     axios
       .post(`${url}/auth/login`, credentials )
       .then(res => { 
-        dispatch({ type: LOGIN_SUCCESS, payload: credentials.username })
+        dispatch({ type: LOGIN_SUCCESS, payload: {username: credentials.username, id: res.data.id} })
         localStorage.setItem("token", res.data.token)
         localStorage.setItem("username", credentials.username)
-        history.push("/posts")
+        localStorage.setItem("userId", res.data.id)
+
+        history.push("/myposts")
       })
       .catch(err => dispatch({ type: LOGIN_FAIL, payload: err.response.statusText }));
 }
 
 export const signup = (dispatch, userDetails) => {
   dispatch({ type: SIGNUP_START });
-  console.log(userDetails)
   axios
   .post(`${url}/auth/register`, userDetails )
-  .then(res =>
+  .then(res => {
     dispatch({ type: SIGNUP_SUCCESS })
-  )
+    history.push("/login")
+  })
   .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err.response.statusText }));
 }
 
 export const createPost = (dispatch, postDetails) => {
     dispatch({ type: CREATE_POST_START });
       AxiosWithAuth()
-        .post(`${url}/posts`, postDetails )
+        .post(`${url}/users/${postDetails.user_id}/posts`, postDetails )
         .then(res => { 
           dispatch({ type: CREATE_POST_SUCCESS })
-          history.push("/posts")
+          history.push("/")
         })
         .catch(err => dispatch({ type: CREATE_POST_FAIL, payload: err.response.statusText }));
   }
 
 export const editPost = (dispatch, postDetails) => {
+
     dispatch({ type: EDIT_POST_START });
     AxiosWithAuth()
-    .put(`${url}/posts/${postDetails.id}`, postDetails )
+    .put(`${url}/posts/${postDetails.id}`, {story: postDetails.story} )
     .then(res => { 
       dispatch({ type: EDIT_POST_SUCCESS })
-      history.push("/posts")
-    })
+      getSinglePost(dispatch, postDetails.id);
+        })
     .catch(err => dispatch({ type: EDIT_POST_FAIL, payload: err.response.statusText }));
 }
 
@@ -79,7 +83,7 @@ export const deletePost = (dispatch, postId) => {
     .delete(`${url}/posts/${postId}`)
     .then(res => { 
       dispatch({ type: DELETE_POST_SUCCESS })
-      history.push("/posts")
+      history.push("/")
     })
     .catch(err => dispatch({ type: DELETE_POST_FAIL, payload: err.response.statusText }));
 }
@@ -105,11 +109,13 @@ export const getAllPosts = (dispatch) => {
 }
 
 export const getPostsForUser = (dispatch, userId) => {
-    dispatch({ type: FETCH_POSTS_START });
+   dispatch({ type: FETCH_POSTS_START });
     axios
-    .get(`${url}/users/${userId}/posts`)
+    .get(`${url}/users/${userId.toString()}/posts`)
     .then(res => { 
       dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data })
     })
     .catch(err => dispatch({ type: FETCH_POSTS_FAIL, payload: err.response.statusText }));
 }
+
+export const logout = dispatch => dispatch({type:LOGOUT})

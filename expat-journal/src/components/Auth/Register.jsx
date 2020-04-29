@@ -34,8 +34,8 @@ const RegisterPage = ({ touched, errors, isSubmitting, handleSubmit }) => {
                 <button className="button" disabled={isSubmitting}>
                     Submit
       </button>
-                <p className="change">
-                    <Link to="/">Login</Link>
+      <p>
+                    Have an account? <Link to="/login">Log In!</Link>
                 </p>
             </Form>
         </Styles>
@@ -64,14 +64,7 @@ const FormikRegisterPage = withFormik({
             password: values.password
         }
         signup(bag.props.dispatch, newUser)
-        // axios.post("https:expat-journal3.herokuapp.com/api/auth/register", newUser)
-        //     .then(response => {
-        //         console.log(response);
-        //         bag.props.pushUser("/");
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
+
     }
 })(RegisterPage);
 

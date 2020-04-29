@@ -7,10 +7,9 @@ import PostList from "../components/PostList"
 const AllPosts = () => {
 
     const dispatch = useContext(DispatchContext)
-    const {id} = useParams()
     useEffect(() => {
         getAllPosts(dispatch)
-    }, [id])
+    }, [])
 
     return (
 
