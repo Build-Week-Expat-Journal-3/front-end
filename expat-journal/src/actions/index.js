@@ -60,7 +60,7 @@ export const createPost = (dispatch, postDetails) => {
         .post(`${url}/users/${postDetails.user_id}/posts`, postDetails )
         .then(res => { 
           dispatch({ type: CREATE_POST_SUCCESS })
-          history.push("/")
+          history.push("/myposts")
         })
         .catch(err => dispatch({ type: CREATE_POST_FAIL, payload: err.response.statusText }));
   }
@@ -83,7 +83,7 @@ export const deletePost = (dispatch, postId) => {
     .delete(`${url}/posts/${postId}`)
     .then(res => { 
       dispatch({ type: DELETE_POST_SUCCESS })
-      history.push("/")
+      history.push("/myposts")
     })
     .catch(err => dispatch({ type: DELETE_POST_FAIL, payload: err.response.statusText }));
 }
