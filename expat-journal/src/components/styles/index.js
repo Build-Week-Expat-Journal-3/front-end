@@ -6,6 +6,7 @@ import Logo from "../../media/logos/small_no_tagline.png"
 import { NavLink } from 'react-router-dom';
 import LoaderGif from "../../media/images/loader.gif"
 import { Field } from "formik"
+import Background from "../../media/images/img2.jpg"
 
 
 //App
@@ -148,36 +149,54 @@ padding: 1%;
 // `
 //PostList
 
+// export const PLBackgroundContainer = Styled.div`
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+// align-content: center;
+// margin-top: 8%;
+// color:black;
+// text-align: center;
+// width:50%;
+// `
+// export const PLImageBackground = Styled.div `
+// display: flex;
+// justify-content:center;
+// background-image: url(${Background});
+// background-size:cover;
+// position:fixed;
+// overflow:hidden;
+// `
+
 export const PostListContainer = Styled.div`
 display: flex;
-flex-wrap: wrap;
-flex-direction: rows;
-margin-top: 10%;
-width: 20%;
+flex-direction: column;
+max-width: 95%;
+margin: 10% auto;
 `
 //PostSummary
 
 export const PLSBackgroundContainer = Styled.div`
-
-
+display:flex;
+justify-content: center;
+flex-direction: row;
+flex-wrap: wrap;
+width: 80%;
+padding:5%
 `
 export const Container = Styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
+
 `
 
 export const PLSContainer = Styled.div`
-display: flex;
-flex-direction: rows;
-flex-wrap: wrap;
+display:flex;
+width:100%;
+justify-content:center;
 `
 
 export const PostSummaryImages = Styled.img`
-width: 50%;
-border-radius: 25px;
 object-fit: cover;
-
+max-width:55%
 `
 //box-shadow: 5px 5px 8px green;
 
@@ -187,6 +206,7 @@ text-align:center;
 color: black;
 text-align: center;
 text-decoration:none;
+font-size: 1.5rem;
 `
 
 //Post
