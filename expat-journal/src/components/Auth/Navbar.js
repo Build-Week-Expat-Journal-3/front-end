@@ -21,7 +21,7 @@ const Navbar = () => {
             {loggedInUser ?  <NavigationLink to="/posts/create">Create New Post</NavigationLink> : null}
             {loggedInUser ?  <NavigationLink to="/myposts">My Posts</NavigationLink> : null}
             {loggedInUser ? <NavigationLink  to="/logout">Logout</NavigationLink> : null}
-            {loggedInUser ? <p>{`Welcome ${loggedInUser}`}</p> : <NavigationLink to="/login">Login/Register</NavigationLink>}
+            {loggedInUser ? <p style={{ marginRight:"3%", fontSize:"1.2rem", textAlign:"center",color:"brown" }}>{`Welcome ${loggedInUser}!`}</p> : <NavigationLink to="/login">Login/Register</NavigationLink>}
         
 
 		</NavbarDiv>

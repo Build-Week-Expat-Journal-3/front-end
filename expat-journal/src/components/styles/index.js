@@ -226,15 +226,18 @@ font-size: 1.5rem;
 
 //UserPost
 
-export const userContainerDiv = Styled.div`
+export const UserContainerDiv = Styled.div`
 display:flex;
-margin-top:50%;
+flex-direction: column;
+margin-top: 4%;
 `
 
 
-export const userCreateDiv = Styled.div`
+export const UserCreateDiv = Styled.div`
 display:flex;
-margin-top:50%;
+justify-content: center;
+align-text:center;
+padding: 2%;
 `
 
 // const LAwesomeHeader = Styled.h1`

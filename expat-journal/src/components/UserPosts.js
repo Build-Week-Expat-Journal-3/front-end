@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react"
 import { DispatchContext, StateContext } from "../context"
 import { getPostsForUser } from "../actions"
 import PostList from "../components/PostList"
-import { NavigationLink } from "./styles"
+import { UserCreateDiv, UserContainerDiv, NavigationLink } from "./styles"
 
 
 const UserPosts = () => {
@@ -15,12 +15,12 @@ const UserPosts = () => {
 
     return (
 
-      <userContainerDiv>
-          <userCreateDiv>
+      <UserContainerDiv>
+          <UserCreateDiv>
           <NavigationLink to="/posts/create"> Create A New Post </NavigationLink>
-          </userCreateDiv>
+          </UserCreateDiv>
           <PostList />
-      </userContainerDiv>
+      </UserContainerDiv>
 
     )
 }
