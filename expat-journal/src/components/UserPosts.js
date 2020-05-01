@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import { DispatchContext, StateContext } from "../context"
 import { getPostsForUser } from "../actions"
 import PostList from "../components/PostList"
-import CreatePost from "../components/PostList"
+
 
 const UserPosts = () => {
 

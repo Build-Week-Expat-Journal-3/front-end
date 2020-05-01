@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import { NavLink } from 'react-router-dom';
 import { StateContext } from "../../context"
-import { history } from "../../utils/history"
+import { NavbarDiv, NavbarLink, NavigationLink, NavLogoContainerDiv }  from "../styles"
+import Logo from "../../media/logos/large_no_tagline.png"
 
 
 
@@ -10,17 +10,21 @@ const Navbar = () => {
     const url = "https://goofy-joliot-c0daa3.netlify.app/"
     
 	return (
-		<div>
-            <a href={`${url}/index.html`}>Home</a>
-            <a href={`${url}/about.html`}>About</a>
-            <NavLink to="/">Posts</NavLink>
-            {loggedInUser ?  <NavLink to="/posts/create">Create New Post</NavLink> : null}
-            {loggedInUser ?  <NavLink to="/myposts">My Posts</NavLink> : null}
-            {loggedInUser ? <NavLink to="/logout">Logout</NavLink> : null}
-            {loggedInUser ? <p>{`Welcome ${loggedInUser}`}</p> : <NavLink to="/login">Login</NavLink>}
+		<NavbarDiv>
+            <NavLogoContainerDiv>
+            <img src={Logo} alt="logo" style={{  width:"15%" }} />
+            <p>"Live Your Dream, Tell Your Story"</p>
+            </NavLogoContainerDiv>
+            <NavbarLink href={`${url}/index.html`}>Home</NavbarLink>
+            <NavbarLink href={`${url}/about.html`}>About</NavbarLink>
+            <NavigationLink to="/">Posts</NavigationLink>
+            {loggedInUser ?  <NavigationLink to="/posts/create">Create New Post</NavigationLink> : null}
+            {loggedInUser ?  <NavigationLink to="/myposts">My Posts</NavigationLink> : null}
+            {loggedInUser ? <NavigationLink  to="/logout">Logout</NavigationLink> : null}
+            {loggedInUser ? <p>{`Welcome ${loggedInUser}`}</p> : <NavigationLink to="/login">Login/Register</NavigationLink>}
         
 
-		</div>
+		</NavbarDiv>
 	);
 };
 

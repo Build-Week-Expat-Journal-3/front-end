@@ -1,44 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import * as yup from "yup";
-import { Styles } from './Styles';
 import { withFormik, Form, Field } from "formik";
 import { signup } from "../../actions"
+import { LoginVideoBackground, LoginBackgroundContainer, LoginContainerDiv, FormContainerDiv, AwesomeButton, AwesomeInput, AwesomeSubHeader } from "../styles";
+import Video from "../../media/videos/vid3.mp4";
+import Logo from "../../media/logos/large_with_tagline.png";
+
 
 const RegisterPage = ({ touched, errors, isSubmitting, handleSubmit }) => {
     return (
-
-        <Styles>
+        <LoginVideoBackground>
+        <video style={{ zIndex: -100, position: "fixed", width:"100%" }} autoPlay loop muted>
+          <source src={Video} type="video/mp4" />
+        </video>
+        <LoginBackgroundContainer>
+      <LoginContainerDiv>
+            <img src={Logo} alt="logo" style={{  width:"80%" }} />
+        </LoginContainerDiv>
+      <FormContainerDiv>
             <Form onSubmit={handleSubmit} className="register">
-                <h5>Sign Up</h5>
+                <AwesomeSubHeader>Sign Up</AwesomeSubHeader>
 
-                <Field
+                <AwesomeInput
                     className="input"
                     name="username"
                     type="username"
-                    placeholder="username"
-                ></Field>
+                    placeholder="Username"
+                ></AwesomeInput>
                 {touched.username && errors.username && <span>{" " + errors.username}</span>}
                 <br />
-                <Field
+                <AwesomeInput
                     className="input"
                     name="password"
                     type="password"
                     placeholder="Password"
-                ></Field>
+                ></AwesomeInput>
                 {touched.password && errors.password && (
                     <span>{" " + errors.password}</span>
                 )}
                 <br />
-                <button className="button" disabled={isSubmitting}>
+                <AwesomeButton className="button" disabled={isSubmitting}>
                     Submit
-      </button>
+      </AwesomeButton>
       <p>
                     Have an account? <Link to="/login">Log In!</Link>
                 </p>
             </Form>
-        </Styles>
+            </FormContainerDiv>
+      </LoginBackgroundContainer>
+    </LoginVideoBackground>
     );
 };
 
