@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DispatchContext, StateContext } from "../context";
 import { getSinglePost, editPost, deletePost } from "../actions";
-import { IMGBackContainer1, PostContainer, AwesomeButton2} from "./styles"
+import { IMGBackContainer1, PostContainer, AwesomeButton3, PostStory, AwesomeTextArea, PostDiv, PostHeader, PostLocation} from "./styles"
 
 
 const Post = () => {
@@ -41,25 +41,25 @@ const Post = () => {
         <PostContainer>
           <img src={currentPost.img_url} alt={currentPost.title} />
 
-          <h2>{currentPost.title}</h2>
+          <PostHeader>{currentPost.title}</PostHeader>
 
-          <p>{currentPost.location}</p>
+          <PostLocation>Location: {currentPost.location}</PostLocation>
 
           {editing ? (
-              <>
-            <textarea value={storyEdit} onChange={handleChange} name="storyEdit">
+              <PostDiv>
+            <AwesomeTextArea value={storyEdit} onChange={handleChange} name="storyEdit">
               {currentPost.story}
-            </textarea>
-            <button onClick={saveEdit}>Save</button>
-            </>
+            </AwesomeTextArea>
+            <AwesomeButton3 onClick={saveEdit}>Save</AwesomeButton3>
+            </PostDiv>
           ) : (
-            <p>{currentPost.story}</p>
+            <PostStory>{currentPost.story}</PostStory>
           )}
           {currentPost.user_id == loggedInUserId ? (
-            <div>
-              <AwesomeButton2 onClick={toggleEditing}>{editing ? "Cancel Edit" : "Edit Post"}</AwesomeButton2>
-              <AwesomeButton2 onClick={handleDeletePost}>Delete Post</AwesomeButton2>
-            </div>
+            <PostDiv>
+              <AwesomeButton3 onClick={toggleEditing}>{editing ? "Cancel Edit" : "Edit Post"}</AwesomeButton3>
+              <AwesomeButton3 onClick={handleDeletePost}>Delete Post</AwesomeButton3>
+            </PostDiv>
           ) : null}
         </PostContainer>
       )}
