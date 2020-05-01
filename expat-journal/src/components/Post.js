@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DispatchContext, StateContext } from "../context";
 import { getSinglePost, editPost, deletePost } from "../actions";
+import { IMGBackContainer1, PostContainer, AwesomeButton2} from "./styles"
 
 
 const Post = () => {
@@ -35,9 +36,9 @@ const Post = () => {
       setStoryEdit(e.target.value)
   }
   return (
-    <>
+    <IMGBackContainer1>
       {currentPost && (
-        <div>
+        <PostContainer>
           <img src={currentPost.img_url} alt={currentPost.title} />
 
           <h2>{currentPost.title}</h2>
@@ -56,13 +57,13 @@ const Post = () => {
           )}
           {currentPost.user_id == loggedInUserId ? (
             <div>
-              <button onClick={toggleEditing}>{editing ? "Cancel Edit" : "Edit Post"}</button>
-              <button onClick={handleDeletePost}>Delete Post</button>
+              <AwesomeButton2 onClick={toggleEditing}>{editing ? "Cancel Edit" : "Edit Post"}</AwesomeButton2>
+              <AwesomeButton2 onClick={handleDeletePost}>Delete Post</AwesomeButton2>
             </div>
           ) : null}
-        </div>
+        </PostContainer>
       )}
-    </>
+    </IMGBackContainer1>
   );
 };
 export default Post;

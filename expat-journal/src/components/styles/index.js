@@ -5,6 +5,7 @@ import LoaderGif from "../../media/images/loader.gif"
 import { Field } from "formik"
 import image3 from "../../media/images/img3.jpg"
 import { BGColorKeyFrames, LogoKeyFrames} from "../../media/keyframes"
+import image2 from "../../media/images/img2.jpg"
 
 //App
 export const ContainerDiv = Styled.div`
@@ -51,6 +52,7 @@ color:white;
 font-family: 'Poppins', sans-serif;
 margin: 0 3%;
 font-size: 2rem;
+box-shadow: 5px 5px 8px #4d3e3e;
 `
 export const NavLogoContainerDiv = Styled.div`
 display: flex;
@@ -242,7 +244,6 @@ flex-direction: column;
 margin-top: 4%;
 `
 
-
 export const UserCreateDiv = Styled.div`
 display:flex;
 justify-content: center;
@@ -250,7 +251,33 @@ align-text:center;
 padding: 2%;
 animation: ${BGColorKeyFrames} 5s linear infinite alternate both;
 `
+//Post
+export const IMGBackContainer1 = Styled.div`
+background-image: url(${image2});
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+width: 100%;
+`
 
+export const PostContainer = Styled.div`
+display: flex;
+flex-direction: column;
+max-width: 95%;
+margin: 6% auto;
+background:rgba(255, 242, 229, 0.8);
+`
+export const AwesomeButton2 = Styled.button `
+box-shadow: 5px 5px 8px #b7472a;
+padding:1%;
+border-radius: 5px;
+font-size: .7em;
+margin: 5% 1%;
+outline:none;
+width: 20%;
+background: linear-gradient(19deg, rgba(183,71,42,1) 0%, rgba(255,213,171,1) 47%, rgba(183,71,42,1) 100%);
+color:#b7472a;
+`
 // const LAwesomeHeader = Styled.h1`
 // display:flex;
 // text-align:center;
