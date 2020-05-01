@@ -6,8 +6,8 @@ import Logo from "../../media/logos/small_no_tagline.png"
 import { NavLink } from 'react-router-dom';
 import LoaderGif from "../../media/images/loader.gif"
 import { Field } from "formik"
-import Background from "../../media/images/img2.jpg"
 
+import image3 from "../../media/images/img3.jpg"
 
 //App
 export const ContainerDiv = Styled.div`
@@ -22,7 +22,7 @@ flex-wrap:nowrap;
 justify-content:space-between;
 align-items: center;
 padding: 0 1%;
-background:rgba(255, 242, 229, 0.44);
+background:rgba(255, 242, 229, 0.65);
 box-shadow: 5px 5px 8px #b7472a;
 position:fixed;
 width:100%;
@@ -168,11 +168,21 @@ padding: 1%;
 // overflow:hidden;
 // `
 
+
+export const IMGBackPContainer2 = Styled.div`
+background-image: url(${image3});
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+width: 100%;
+`
+
 export const PostListContainer = Styled.div`
 display: flex;
 flex-direction: column;
 max-width: 95%;
-margin: 10% auto;
+margin: 6% auto;
+background:rgba(255, 242, 229, 0.8);
 `
 //PostSummary
 
@@ -214,9 +224,18 @@ text-decoration:none;
 font-size: 1.5rem;
 `
 
-//Post
+//UserPost
+
+export const userContainerDiv = Styled.div`
+display:flex;
+margin-top:50%;
+`
 
 
+export const userCreateDiv = Styled.div`
+display:flex;
+margin-top:50%;
+`
 
 // const LAwesomeHeader = Styled.h1`
 // display:flex;
