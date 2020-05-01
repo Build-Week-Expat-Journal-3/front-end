@@ -1,13 +1,10 @@
 import Styled from 'styled-components';
-//import Background from "../media/smurfsBackground.jpg"
-//import { titleKeyFrame } from "../media/keyframes"
 import Logo from "../../media/logos/small_no_tagline.png"
-//import Loader from "../../media/images/loader.gif"
 import { NavLink } from 'react-router-dom';
 import LoaderGif from "../../media/images/loader.gif"
 import { Field } from "formik"
-
 import image3 from "../../media/images/img3.jpg"
+import { BGColorKeyFrames, LogoKeyFrames} from "../../media/keyframes"
 
 //App
 export const ContainerDiv = Styled.div`
@@ -44,6 +41,16 @@ text-decoration:none;
 font-family: 'Poppins', sans-serif;
 margin: 0 3%;
 font-size: 1rem;
+`
+
+export const NavigationLink2 = Styled(NavLink)`
+display:flex;
+align-content: center;
+text-decoration:none;
+color:white;
+font-family: 'Poppins', sans-serif;
+margin: 0 3%;
+font-size: 2rem;
 `
 export const NavLogoContainerDiv = Styled.div`
 display: flex;
@@ -83,7 +90,11 @@ export const LoginVideoBackground = Styled.div`
 display: flex;
 justify-content: center;
 `
+//animations
 
+export const LogoAnimate = Styled.div`
+animation: ${LogoKeyFrames} 0.6s ease-out 2s both;
+`
 
 export const AwesomeInput = Styled(Field) `
 display:flex;
@@ -213,7 +224,6 @@ export const PostSummaryImages = Styled.img`
 object-fit: cover;
 max-width:55%
 `
-//box-shadow: 5px 5px 8px green;
 
 export const PostAwesomeTitleHeader = Styled.h2`
 display:flex;
@@ -238,6 +248,7 @@ display:flex;
 justify-content: center;
 align-text:center;
 padding: 2%;
+animation: ${BGColorKeyFrames} 5s linear infinite alternate both;
 `
 
 // const LAwesomeHeader = Styled.h1`

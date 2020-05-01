@@ -6,6 +6,7 @@ import { login } from "../../actions";
 import { LoginVideoBackground, LoginBackgroundContainer, LoginContainerDiv, FormContainerDiv, AwesomeButton, AwesomeInput, AwesomeSubHeader } from "../styles";
 import Video from "../../media/videos/vid.mp4";
 import Logo from "../../media/logos/large_with_tagline.png";
+import { LogoAnimate } from "../styles"
 
 const LoginPage = ({ errors, touched, isSubmitting, handleSubmit }) => {
   return (
@@ -15,7 +16,9 @@ const LoginPage = ({ errors, touched, isSubmitting, handleSubmit }) => {
       </video>
       <LoginBackgroundContainer>
       <LoginContainerDiv>
+        <LogoAnimate>
             <img src={Logo} alt="logo" style={{  width:"80%" }} />
+            </LogoAnimate>
         </LoginContainerDiv>
       <FormContainerDiv>
         <Form onSubmit={handleSubmit}>
