@@ -181,17 +181,21 @@ display:flex;
 justify-content: center;
 flex-direction: row;
 flex-wrap: wrap;
-width: 80%;
-padding:5%
+padding:3%
 `
 export const Container = Styled.div`
-
+display:flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-items: center;
+align-content:center;
 `
 
 export const PLSContainer = Styled.div`
 display:flex;
-width:100%;
+width: 950%;
 justify-content:center;
+margin: 0 auto;
 `
 
 export const PostSummaryImages = Styled.img`
