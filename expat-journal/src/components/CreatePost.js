@@ -71,7 +71,7 @@ const CreatePost = () => {
             name="story"
             value={formState.story}
             onChange={handleChange}
-            placeholder="Tell Your Story?"
+            placeholder="Tell Your Story!"
           />
         </label>
   <AwesomeButton2 onClick={handleSubmit}>Create Post</AwesomeButton2>
