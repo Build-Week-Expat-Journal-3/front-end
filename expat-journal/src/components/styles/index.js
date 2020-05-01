@@ -189,6 +189,7 @@ flex-direction: column;
 flex-wrap: wrap;
 align-items: center;
 align-content:center;
+margin-top:1%;
 `
 
 export const PLSContainer = Styled.div`
