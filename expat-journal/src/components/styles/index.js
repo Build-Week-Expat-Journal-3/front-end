@@ -277,6 +277,7 @@ outline:none;
 width: 20%;
 background: linear-gradient(19deg, rgba(183,71,42,1) 0%, rgba(255,213,171,1) 47%, rgba(183,71,42,1) 100%);
 color:#b7472a;
+margin: 2% 0 ;
 `
 
 //Create Post
