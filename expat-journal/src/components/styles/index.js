@@ -6,6 +6,7 @@ import { Field } from "formik"
 import image3 from "../../media/images/img3.jpg"
 import { BGColorKeyFrames, LogoKeyFrames} from "../../media/keyframes"
 import image2 from "../../media/images/img2.jpg"
+import image1 from "../../media/images/img9.jpg"
 
 //App
 export const ContainerDiv = Styled.div`
@@ -272,12 +273,83 @@ box-shadow: 5px 5px 8px #b7472a;
 padding:1%;
 border-radius: 5px;
 font-size: .7em;
-margin: 5% 1%;
 outline:none;
 width: 20%;
 background: linear-gradient(19deg, rgba(183,71,42,1) 0%, rgba(255,213,171,1) 47%, rgba(183,71,42,1) 100%);
 color:#b7472a;
 `
+
+//Create Post
+
+export const IMGBackContainer3 = Styled.div`
+display:flex;
+background-image: url(${image1});
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+height: 99vh;
+`
+export const CreatePostContainer = Styled.div`
+display: flex;
+flex-direction: column;
+justify-content:center;
+text-align:center;
+border-radius:25px;
+width: 70%;
+margin: 6% auto;
+padding: 0 5%;
+background:rgba(255, 242, 229, 0.8);
+`
+
+export const AwesomeInput2 = Styled.input `
+display:flex;
+margin-left:8%;
+justify-content:center;
+text-align: center;
+font-size: 1rem;
+background: transparent;
+border: none;
+border-bottom: 2px dotted brown;
+padding: 2% 3%;
+width: 80%;
+outline:none;
+flex-wrap: nowrap;
+`
+export const AwesomeTextArea = Styled.textarea `
+display:flex;
+justify-content:center;
+text-align: center;
+font-size: 1rem;
+background: transparent;
+border: none;
+border-bottom: 2px dotted brown;
+padding: .5% 3%;
+width: 80%;
+margin-left:8%;
+padding: 5% 3%;
+outline:none;
+flex-wrap: nowrap;
+rows:6;
+`
+
+
+
+
+// export const AwesomeLabel = Styled.label `
+// margin: 5% 3%;
+// `
+
+// export const FormContainerDiv = Styled.div`
+// display:flex;
+// justify-content: center;
+// text-align: left;
+// padding: 5%;
+// margin: 2%;
+// color:royalBlue;
+// `
+
+
+
 // const LAwesomeHeader = Styled.h1`
 // display:flex;
 // text-align:center;

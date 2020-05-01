@@ -1,6 +1,7 @@
 import React, { useContext, useState} from "react";
 import { createPost } from "../actions";
 import { DispatchContext, StateContext } from "../context";
+import { IMGBackContainer3, CreatePostContainer, AwesomeButton2, AwesomeInput2, AwesomeTextArea } from "./styles"
 
 //import { AwesomeButton, AwesomeInput, FormContainerDiv, AwesomeLabel  } from "../styles"
 
@@ -30,10 +31,11 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
+    <IMGBackContainer3>
+    <CreatePostContainer>
       <form onSubmit={handleSubmit}>
         <label htmlFor="image">
-          <input
+          <AwesomeInput2
             id="image"
             type="text"
             name="img_url"
@@ -43,7 +45,7 @@ const CreatePost = () => {
           />
         </label>
         <label htmlFor="title">
-          <input
+          <AwesomeInput2
             id="title"
             type="text"
             name="title"
@@ -53,7 +55,7 @@ const CreatePost = () => {
           />
         </label>
         <label htmlFor="location">
-          <input
+          <AwesomeInput2
             id="location"
             type="text"
             name="location"
@@ -63,7 +65,7 @@ const CreatePost = () => {
           />
         </label>
         <label htmlFor="Story">
-          <textarea
+          <AwesomeTextArea
             id="story"
             type="text"
             name="story"
@@ -72,9 +74,10 @@ const CreatePost = () => {
             placeholder="Tell Your Story?"
           />
         </label>
-  <button onClick={handleSubmit}>Create Post</button>
+  <AwesomeButton2 onClick={handleSubmit}>Create Post</AwesomeButton2>
       </form>
-    </div>
+    </CreatePostContainer>
+    </IMGBackContainer3>
   );
 };
 
