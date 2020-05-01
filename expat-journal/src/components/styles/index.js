@@ -195,7 +195,7 @@ export const PostListContainer = Styled.div`
 display: flex;
 flex-direction: column;
 max-width: 95%;
-margin: 6% auto;
+margin: 4% 0 0 2%;
 background:rgba(255, 242, 229, 0.8);
 `
 //PostSummary
@@ -265,7 +265,7 @@ export const PostContainer = Styled.div`
 display: flex;
 flex-direction: column;
 max-width: 95%;
-margin: 6% auto;
+margin: 4% 0 0 2%;
 background:rgba(255, 242, 229, 0.8);
 `
 export const AwesomeButton2 = Styled.button `
