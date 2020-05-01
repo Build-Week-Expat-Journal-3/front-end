@@ -158,9 +158,7 @@ width: 20%;
 //PostSummary
 
 export const PLSBackgroundContainer = Styled.div`
-display: flex;
-flex-direction: rows;
-flex-wrap: wrap;
+
 
 `
 export const Container = Styled.div`
